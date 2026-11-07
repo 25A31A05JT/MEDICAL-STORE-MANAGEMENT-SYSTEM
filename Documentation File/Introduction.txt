@@ -1,0 +1,10 @@
+Introduction
+The Medical Store Management System is a Java-based application designed to make the daily operations of a medical store easier and more organized. In a medical store, maintaining medicine details, checking stock, and managing sales manually can take more time and may lead to mistakes. This project provides a simple solution to these problems.
+
+The application allows the storekeeper to add new medicines by entering their medicine code, name, price, and available quantity. It also provides options to display all medicines and search for a particular medicine using its unique code.
+
+Another important feature is stock management. The storekeeper can update the quantity of existing medicines whenever new stock arrives. When a medicine is sold, the system checks its availability, calculates the total bill, and automatically reduces the sold quantity from the available stock. It also displays medicines with low stock so that they can be refilled on time.
+
+This project is developed using Core Java concepts such as classes, objects, methods, loops, conditional statements, and ArrayList. It helps reduce manual record-keeping and provides a simple way to manage medicine details and sales.
+
+Overall, the main aim of this project is to make medical store management faster, easier, and more efficient.

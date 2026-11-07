@@ -1,0 +1,13 @@
+Algorithm – Medical Store Management System
+1. Start the program.
+2. Create an ArrayList to store medicine details.
+3. Display the main menu with different options.
+4. Ask the user to select an operation.
+5. If the user selects Add Medicine, enter the medicine code, name, price, and quantity, then store the details.
+6. If the user selects Display Medicines, show all available medicine details.
+7. If the user selects Search Medicine, enter the medicine code and search for the matching record.
+8. If the user selects Update Stock, enter the medicine code and update its available quantity.
+9. If the user selects Sell Medicine, check the available stock, calculate the bill, and reduce the sold quantity.
+10. If the user selects Check Low Stock, display medicines with a quantity below 5.
+11. Repeat the menu until the user selects the Exit option.
+12. Stop the program.

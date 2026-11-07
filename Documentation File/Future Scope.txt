@@ -1,0 +1,11 @@
+Future Scope
+The Medical Store Management System can be improved in the future by adding more advanced features to make it more useful and efficient.
+1. Database Integration: Store medicine details permanently using MySQL or another database.
+2. User Login: Add username and password authentication to provide secure access.
+3. Expiry Date Tracking: Maintain medicine expiry dates and alert users about medicines nearing expiration.
+4. Automatic Billing: Generate and print detailed customer bills.
+5. Barcode Scanning: Add barcode scanning to identify medicines quickly.
+6. Online Medicine Ordering: Allow customers to view and order available medicines online.
+7. Sales Reports: Generate daily, weekly, and monthly sales reports.
+8. Low Stock Alerts: Automatically notify the storekeeper when medicine quantities become low.
+These improvements can make the system more advanced, secure, and suitable for real-world medical store management.

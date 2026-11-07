@@ -1,0 +1,12 @@
+Methodology
+The Medical Store Management System is developed using Core Java to simplify the daily activities of a medical store. The application follows a menu-driven approach, allowing the user to select and perform different operations.
+
+Initially, the program creates a medicine record using a class containing medicine code, name, price, and quantity. An ArrayList is used to store and manage multiple medicine records during program execution.
+
+The system provides an option to add multiple medicines by entering their details. Each medicine is assigned a unique code to make identification and searching easier. The user can view all the available medicines and search for a particular medicine using its code.
+
+For stock management, the system displays the current quantity of the selected medicine and allows the user to add new stock. During a sale, the program checks whether the requested quantity is available. If sufficient stock is available, it calculates the total bill and automatically updates the remaining quantity.
+
+The application also includes a low-stock checking option to identify medicines with fewer than five units. This helps the storekeeper know which medicines need to be refilled.
+
+The complete system is implemented using Java concepts such as classes, objects, methods, ArrayList, loops, and conditional statements. It provides a simple and organized way to handle medicine records, stock updates, and sales.
