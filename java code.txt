@@ -1,0 +1,235 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+class Medicine 
+{
+    int id;
+    String name;
+    double price;
+    int quantity;
+    Medicine(int id, String name, double price, int quantity) 
+    {
+        this.id = id;
+        this.name = name; 
+        this.price = price;
+        this.quantity = quantity;
+    }
+    void display() 
+    {
+        System.out.println(id + "\t" + name + "\tRs." + price + "\t" + quantity);
+    }
+}
+public class Main 
+{
+    static Scanner sc = new Scanner(System.in);
+    static ArrayList<Medicine> medicines = new ArrayList<>();
+    // Find medicine using ID
+    static Medicine findMedicine(int id)
+    {
+        for (Medicine m : medicines) 
+        {
+            if (m.id == id)
+            {
+                return m;
+            }
+        }
+        return null;
+    }
+    // Add multiple medicines
+    static void addMedicine() 
+    {
+        System.out.print("How many medicines do you want to add? ");
+        int count = sc.nextInt();
+        for (int i = 1; i <= count; i++) 
+        {
+            System.out.println("\nEnter details of Medicine " + i);
+            System.out.print("Enter Medicine Code: ");
+            int id = sc.nextInt();
+            if (findMedicine(id) != null) 
+            {
+                System.out.println("Medicine code already exists!");
+                i--;
+                continue;
+            }
+            sc.nextLine();
+            System.out.print("Enter Medicine Name: ");
+            String name = sc.nextLine();
+            System.out.print("Enter Medicine Price: ");
+            double price = sc.nextDouble();
+            System.out.print("Enter Quantity: ");
+            int quantity = sc.nextInt();
+            if (price <= 0 || quantity < 0) 
+            {
+                System.out.println("Invalid price or quantity!");
+                i--;
+                continue;
+            }
+            medicines.add(new Medicine(id, name, price, quantity));
+            System.out.println("Medicine added successfully!");
+        }
+    }
+    // Display all medicines
+    static void displayMedicines() 
+    {
+        if (medicines.isEmpty()) 
+        {
+            System.out.println("No medicines available!");
+            return;
+        }
+        System.out.println("\n========== MEDICINE DETAILS ==========");
+        System.out.println("Code\tName\t\tPrice\tStock");
+        for (Medicine m : medicines) 
+        {
+            m.display();
+        }
+    }
+    // Search medicine using code
+    static void searchMedicine() 
+    {
+        System.out.print("Enter Medicine Code to Search: ");
+        int id = sc.nextInt();
+        Medicine m = findMedicine(id);
+        if (m != null) 
+        {
+            System.out.println("\nMedicine Found!");
+            System.out.println("Code\tName\tPrice\tStock");
+            m.display();
+        } 
+        else 
+        {
+            System.out.println("Medicine not found!");
+        }
+    }
+    // Update stock
+    static void updateStock() 
+    {
+        System.out.print("Enter Medicine Code: ");
+        int id = sc.nextInt();
+        Medicine m = findMedicine(id);
+        if (m != null) 
+        {
+            System.out.println("\nMedicine Found!");
+            System.out.println("Medicine Name: " + m.name);
+            System.out.println("Current Stock: " + m.quantity);
+            System.out.print("Enter additional quantity to add: ");
+            int add = sc.nextInt();
+            if (add <= 0) 
+            {
+                System.out.println("Invalid quantity!");
+                return;
+            }
+            m.quantity += add;
+            System.out.println("\nStock updated successfully!");
+            System.out.println("Medicine Name: " + m.name);
+            System.out.println("Updated Stock: " + m.quantity);
+
+        } 
+        else 
+        {
+            System.out.println("Medicine not found!");
+        }
+    }
+    // Sell medicine and generate bill
+    static void sellMedicine() 
+    {
+        System.out.print("Enter Medicine Code: ");
+        int id = sc.nextInt();
+        Medicine m = findMedicine(id);
+        if (m != null) 
+       {
+            System.out.println("Medicine Name: " + m.name);
+            System.out.println("Available Stock: " + m.quantity);
+            System.out.print("Enter Quantity to Purchase: ");
+            int qty = sc.nextInt();
+            if (qty <= 0) 
+            {
+                System.out.println("Invalid quantity!");
+                return;
+            }
+            if (qty > m.quantity) 
+            {
+                System.out.println("Insufficient Stock!");
+                return;
+            }
+            double total = m.price * qty;
+            m.quantity -= qty;
+            System.out.println("\n========== CUSTOMER BILL ==========");
+            System.out.println("Medicine Name: " + m.name);
+            System.out.println("Price: Rs." + m.price);
+            System.out.println("Quantity: " + qty);
+            System.out.println("-----------------------------------");
+            System.out.println("Total Amount: Rs." + total);
+            System.out.println("===================================");
+            System.out.println("Purchase Successful!");
+        } 
+        else 
+        {
+            System.out.println("Medicine not found!");
+        }
+    }
+    // Display low stock medicines
+    static void lowStock() 
+    {
+        boolean found = false;
+        System.out.println("\n========== LOW STOCK MEDICINES ==========");
+        System.out.println("Code\tName\t\tPrice\tStock");
+        for (Medicine m : medicines) 
+        {
+            if (m.quantity < 5) 
+            {
+                m.display();
+                found = true;
+            }
+        }
+        if (!found) 
+        {
+            System.out.println("No low-stock medicines!");
+        }
+    }
+    // Main method
+    public static void main(String[] args) 
+    {
+        int choice;
+        do 
+        {
+            System.out.println("\n==================================");
+            System.out.println("     MEDICAL STORE MANAGEMENT");
+            System.out.println("==================================");
+            System.out.println("1. Add Medicine");
+            System.out.println("2. Display Medicines");
+            System.out.println("3. Search Medicine");
+            System.out.println("4. Update Stock");
+            System.out.println("5. Sell Medicine");
+            System.out.println("6. Low Stock Medicines");
+            System.out.println("7. Exit");
+            System.out.print("\nEnter your choice: ");
+            choice = sc.nextInt();
+            switch (choice) 
+            {
+                case 1:
+                    addMedicine();
+                    break;
+                case 2:
+                    displayMedicines();
+                    break;
+                case 3:
+                    searchMedicine();
+                    break;
+                case 4:
+                    updateStock();
+                    break;
+                case 5:
+                    sellMedicine();
+                    break;
+                case 6:
+                    lowStock();
+                    break;
+                case 7:
+                    System.out.println("Thank you for using Medical Store Management System!");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+        } while (choice != 7);
+        sc.close();
+    }
+}
